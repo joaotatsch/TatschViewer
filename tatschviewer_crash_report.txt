@@ -1,0 +1,13 @@
+=== TATSCHVIEWER V1 CRASH REPORT ===
+Data e Hora: 2026-05-29 08:46:42
+Exceção Fatal: AttributeError: 'NoneType' object has no attribute 'navegador_2d'
+
+Traceback de Execução:
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\exibicao\viewer_instance.py", line 105, in dropEvent
+    self.main_window.carregar_serie_selecionada(item, target_viewer=self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\interface.py", line 2063, in carregar_serie_selecionada
+    self.coordenador_navegacao.navegador_2d.atualizar_metadados_hud("CARREGANDO SÃ‰RIE ALTA RESOLUÃ‡ÃƒO...")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'navegador_2d'

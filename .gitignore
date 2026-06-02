@@ -1,0 +1,9 @@
+__pycache__/
+.DS_Store
+.tatschviewer_cache/
+dist/
+build/
+*.spec
+*.log
+.venv/
+venv/
