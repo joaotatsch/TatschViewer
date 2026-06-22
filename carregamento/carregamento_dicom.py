@@ -1,19 +1,48 @@
+import logging
 import vtk, numpy as np, SimpleITK as sitk
 import concurrent.futures, os, json, hashlib
+import sys
+from core.utils_profiling import profiler_time
+
+class MriSequenceClassifier:
+    """Classifica a sequência de RM com base na descrição da série DICOM."""
+    @staticmethod
+    @profiler_time
+    def classificar(descricao: str) -> str:
+        if not descricao:
+            return "GENERIC"
+        desc = descricao.lower()
+        if "adc" in desc:
+            return "ADC"
+        elif "dwi" in desc or "b1000" in desc or "b0" in desc or "difus" in desc:
+            return "DWI"
+        elif "flair" in desc or "stir" in desc:
+            return "FLAIR"
+        elif "t2" in desc or "ffe" in desc or "tse" in desc:
+            return "T2"
+        elif "t1" in desc or "mprage" in desc:
+            return "T1"
+        elif "pha" in desc or "phase" in desc or "fase" in desc:
+            return "PHASE"
+        return "GENERIC"
+
 
 class CarregadorDicom:
 
     @staticmethod
+    @profiler_time
     def _caminho_cache_raw(arquivos_limpos, series_id=""):
-        """Deriva um caminho de cache determinístico baseado no hash do diretório e do series_id."""
+        """Deriva um caminho de cache determinístico baseado no hash do diretório, series_id e características dos arquivos."""
         pasta = os.path.dirname(arquivos_limpos[0])
-        hash_base = f'{series_id}_{pasta}'.encode("utf-8")
+        identificador = f"{series_id}_{pasta}_{len(arquivos_limpos)}_{os.path.basename(arquivos_limpos[0])}_{os.path.basename(arquivos_limpos[-1])}"
+        hash_base = identificador.encode("utf-8")
         serie_hash = hashlib.md5(hash_base).hexdigest()
         home = os.path.expanduser("~")
         dir_cache = os.path.join(home, ".tatschviewer_cache", "volumes")
         os.makedirs(dir_cache, exist_ok=True)
         return os.path.join(dir_cache, serie_hash)   # prefixo sem extensão
 
+    @profiler_time
     def salvar_cache_raw(self, np_array, spacing, origin_vtk, direction, propriedades, prefixo):
         """Persiste o volume em (prefixo.raw, prefixo.json) de forma assíncrona e atômica.
         
@@ -148,23 +177,137 @@ class CarregadorDicom:
                     pass
             return None
 
+    @profiler_time
     def carregar_serie(self, diretorio_ou_arquivos, series_id="", ignorar_cache=False):
         import time
         if not isinstance(diretorio_ou_arquivos, list):
             raise ValueError("Erro de otimização: Passe a lista de arquivos limpos.")
-        arquivos_limpos = diretorio_ou_arquivos
 
-        # ─── FAST PATH: cache binário ────────────────────────────────────────
-        prefixo = self._caminho_cache_raw(arquivos_limpos, series_id)
+        # ─── FAST PATH: Check do Cache Antecipado ────────────────────────────
+        # Usamos a lista original para gerar o hash. Se existir, evitamos o DEDUP 4D inteiro!
+        prefixo = self._caminho_cache_raw(diretorio_ou_arquivos, series_id)
         if not ignorar_cache:
             cache = self.carregar_cache_raw(prefixo)
             if cache is not None:
                 vtk_image, np_array, meta = cache
                 sitk_image = sitk.GetImageFromArray(np_array)
                 sitk_image.SetSpacing(meta["spacing"])
-                # Garante que vtk_image tem a propriedade
                 vtk_image.SeriesInstanceUID = meta["propriedades"].get("SeriesInstanceUID", "")
                 return vtk_image, sitk_image, np_array, meta["propriedades"]
+
+        # ─── DEDUPLICAÇÃO 4D ROBUSTA (Slow Path Otimizado) ───────────────────
+        arquivos_limpos = diretorio_ou_arquivos
+        if len(arquivos_limpos) > 1:
+            try:
+                import pydicom
+                import io
+                import concurrent.futures
+
+                def _ler_tags_dedup(arquivo):
+                    try:
+                        try:
+                            with open(arquivo, 'rb') as f:
+                                chunk = f.read(4096)
+                            ds = pydicom.dcmread(io.BytesIO(chunk), stop_before_pixels=True, force=True, specific_tags=['EchoNumbers', 'ImagePositionPatient', 'ImageOrientationPatient', 'InstanceNumber', 'ImageType'])
+                            # Verifica se extraiu com sucesso as tags cruciais de geometria e ordenação
+                            if getattr(ds, 'ImagePositionPatient', None) is None or getattr(ds, 'InstanceNumber', None) is None or getattr(ds, 'ImageOrientationPatient', None) is None:
+                                raise ValueError("Tags essenciais não encontradas no limite de 4KB. Forçando fallback.")
+                        except Exception:
+                            # Fallback para o arquivo inteiro se 4KB não foi suficiente
+                            ds = pydicom.dcmread(arquivo, stop_before_pixels=True, force=True, specific_tags=['EchoNumbers', 'ImagePositionPatient', 'ImageOrientationPatient', 'InstanceNumber', 'ImageType'])
+                        echo_val = getattr(ds, 'EchoNumbers', 1)
+                        echo_num = int(echo_val) if echo_val not in (None, "") else 1
+                        
+                        z_pos = 0.0
+                        ipp = getattr(ds, 'ImagePositionPatient', None)
+                        iop = getattr(ds, 'ImageOrientationPatient', None)
+                        
+                        if ipp is not None and len(ipp) >= 3 and iop is not None and len(iop) >= 6:
+                            # Calcula o vetor normal (produto vetorial dos eixos X e Y da imagem)
+                            nx = float(iop[1])*float(iop[5]) - float(iop[2])*float(iop[4])
+                            ny = float(iop[2])*float(iop[3]) - float(iop[0])*float(iop[5])
+                            nz = float(iop[0])*float(iop[4]) - float(iop[1])*float(iop[3])
+                            # Projeta a posição da imagem no eixo normal (funciona para qualquer plano ortogonal)
+                            z_pos = float(ipp[0])*nx + float(ipp[1])*ny + float(ipp[2])*nz
+                        elif ipp is not None and len(ipp) >= 3:
+                            # Fallback básico para imagens estritamente axiais
+                            z_pos = float(ipp[2])
+                        inst_val = getattr(ds, 'InstanceNumber', 0)
+                        inst_num = int(inst_val) if inst_val not in (None, "") else 0
+                        
+                        img_type = getattr(ds, 'ImageType', "")
+                        img_type_str = "\\".join(map(str, img_type)) if isinstance(img_type, (list, tuple, pydicom.multival.MultiValue)) else str(img_type)
+                        parts = [p.strip().upper() for p in img_type_str.split('\\')] if img_type_str else []
+                        is_magnitude = True
+                        if parts:
+                            is_mag_part = any(p in ["M", "MAGNITUDE", "ADC", "DWI"] for p in parts) or any(p.startswith("M_") for p in parts)
+                            is_phase_or_real = any(p in ["R", "REAL", "P", "PHASE", "I", "IMAGINARY"] for p in parts) or any(p.startswith("R_") or p.startswith("P_") for p in parts)
+                            if is_mag_part and not is_phase_or_real:
+                                is_magnitude = True
+                            elif is_phase_or_real:
+                                is_magnitude = False
+                                
+                        return (echo_num, z_pos, inst_num, is_magnitude, arquivo)
+                    except Exception:
+                        return (1, 0.0, 0, True, arquivo)
+
+                entradas = []
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    for res in executor.map(_ler_tags_dedup, arquivos_limpos):
+                        entradas.append(res)
+
+                n_total = len(entradas)
+
+                # Passo 1.5: Filtrar por tipo de reconstrução (Magnitude vs Outros)
+                tem_magnitude = any(e[3] for e in entradas)
+                tem_outros = any(not e[3] for e in entradas)
+                if tem_magnitude and tem_outros:
+                    entradas = [e for e in entradas if e[3]]
+                    print(f"[DEDUP IMAGETYPE] Mistura detectada. Mantendo Magnitude: {len(entradas)} de {n_total}.")
+
+                # Passo 2: Filtrar pelo eco primário
+                ecos_detectados = set(e[0] for e in entradas)
+                if len(ecos_detectados) > 1:
+                    eco_primario = min(ecos_detectados)
+                    entradas = [e for e in entradas if e[0] == eco_primario]
+                    print(f"[DEDUP ECHO] {len(ecos_detectados)} ecos → mantendo eco={eco_primario}, {len(entradas)} de {n_total}.")
+
+                # Passo 3: Desduplicar por Z (arredonda para 4 casas decimais)
+                # OBRIGATÓRIO: ordenar entradas primeiro por InstanceNumber, depois por Nome do Arquivo. 
+                # Isso garante determinismo se houver fatias com o MESMO Z e mesmo InstanceNumber.
+                entradas.sort(key=lambda x: (x[2], x[4]))
+                mapa_z = {}
+                for echo_num, z_pos, inst_num, is_magnitude, arquivo in entradas:
+                    z_key = round(z_pos, 4)
+                    if z_key not in mapa_z:
+                        mapa_z[z_key] = (inst_num, arquivo)
+
+                # Passo 3.5: Truncar volumes artificialmente empilhados (GE/Philips usam pulos de 1000mm+ para esconder b-values)
+                z_keys = sorted(mapa_z.keys())
+                if len(z_keys) > 1:
+                    diffs = [z_keys[i] - z_keys[i-1] for i in range(1, len(z_keys))]
+                    mediana = sorted(diffs)[len(diffs)//2]
+                    limite_pulo = max(mediana * 5, 50.0) # Se pular mais de 50mm ou 5x a espessura, é falso
+                    z_validos = [z_keys[0]]
+                    for i in range(1, len(z_keys)):
+                        if z_keys[i] - z_keys[i-1] > limite_pulo:
+                            print(f"[DEDUP GAP] Pulo artificial massivo em Z ({z_keys[i-1]} -> {z_keys[i]}). Truncando volume para evitar 'Stacked Brains'.")
+                            break
+                        z_validos.append(z_keys[i])
+                    mapa_z = {k: mapa_z[k] for k in z_validos}
+
+                n_unicos = len(mapa_z)
+                print(f"[DEDUP 4D] Série: Z únicos={n_unicos} / total={len(diretorio_ou_arquivos)}")
+
+                # Passo 4: Ordenar e reconstruir lista
+                if n_unicos > 1:
+                    arquivos_limpos = [v[1][1] for v in sorted(mapa_z.items(), key=lambda x: x[0])]
+                else:
+                    entradas_ord = sorted(entradas, key=lambda x: x[2])
+                    arquivos_limpos = [e[4] for e in entradas_ord]
+
+            except Exception as e:
+                logging.getLogger(__name__).warning(f"Falha na dedup 4D: {e}")
 
         # ─── SLOW PATH: decodificação DICOM completa ─────────────────────────
         t0 = time.perf_counter()
@@ -188,14 +331,43 @@ class CarregadorDicom:
             fatias = list(executor.map(_ler_fatia, arquivos_limpos))
 
         np_array = np.stack(fatias, axis=0)
+        print(f"[STACK] Shape={np_array.shape} dtype={np_array.dtype} min={np_array.min()} max={np_array.max()} arquivos={len(arquivos_limpos)}")
         t1 = time.perf_counter()
-        pass
 
-        t2 = time.perf_counter()
-        if np_array.dtype != np.int16:
-            np_array = np_array.astype(np.int16)
-        t3 = time.perf_counter()
-        pass
+
+        # Detecção de modalidade MR
+        is_mr = False
+        try:
+            r_mod = sitk.ImageFileReader()
+            r_mod.SetFileName(arquivos_limpos[0])
+            r_mod.ReadImageInformation()
+            if r_mod.HasMetaDataKey("0008|0060"):
+                is_mr = ("MR" in r_mod.GetMetaData("0008|0060").strip(" \0").upper())
+        except:
+            pass
+
+        # Cast: CT -> int16 sempre. MR: preserva escala nativa quando possível.
+        is_scaled_float = False
+        if not is_mr:
+            if np_array.dtype != np.int16:
+                np_array = np_array.astype(np.int16)
+        else:
+            # Tratar floats pequenos (ex: eADC na faixa [0, 1])
+            if np.issubdtype(np_array.dtype, np.floating):
+                max_f = float(np_array.max())
+                if max_f <= 10.0:
+                    np_array = np_array * 1000.0
+                    is_scaled_float = True
+
+            if np_array.dtype == np.uint16:
+                max_u16 = int(np_array.max())
+                if max_u16 <= 32767:
+                    np_array = np_array.astype(np.int16)
+                else:
+                    np_array = (np_array.astype(np.int32) >> 1).astype(np.int16)
+            elif np_array.dtype != np.int16:
+                np_array = np_array.astype(np.int16)
+
 
         if len(spacing) < 3:
             spacing.append(1.0)
@@ -211,10 +383,28 @@ class CarregadorDicom:
                     iop = np.array(r0.GetMetaData("0020|0037").split('\\'), dtype=float)
                     if len(iop) == 6:
                         vetor_normal = np.cross(iop[:3], iop[3:])
-                        dist_total = abs(np.dot(p_last - p0, vetor_normal))
-                        z_spacing = dist_total / (len(arquivos_limpos) - 1)
-                        if z_spacing > 0.0:
-                            spacing[2] = float(z_spacing)
+                        vetor_normal = vetor_normal / np.linalg.norm(vetor_normal)
+                        
+                        projecoes = []
+                        for arq in arquivos_limpos:
+                            try:
+                                r_meta = sitk.ImageFileReader()
+                                r_meta.SetFileName(arq)
+                                r_meta.ReadImageInformation()
+                                if r_meta.HasMetaDataKey("0020|0032"):
+                                    ipp_fatia = np.array(r_meta.GetMetaData("0020|0032").split('\\'), dtype=float)
+                                    projecoes.append(np.dot(ipp_fatia, vetor_normal))
+                            except Exception:
+                                pass
+                                
+                        if len(projecoes) > 1:
+                            projecoes.sort()
+                            deltas = np.diff(projecoes)
+                            deltas_validos = [d for d in deltas if abs(d) > 1e-4]
+                            if len(deltas_validos) > 0:
+                                z_spacing = float(np.median(deltas_validos))
+                                if z_spacing > 0.0:
+                                    spacing[2] = z_spacing
             except Exception:
                 pass
 
@@ -256,9 +446,19 @@ class CarregadorDicom:
         pass
 
         sitk_image = sitk.GetImageFromArray(np_array)
-        sitk_image.SetSpacing(spacing)
-        sitk_image.SetOrigin(origin)
-        sitk_image.SetDirection(direction)
+        try:
+            dim = sitk_image.GetDimension()
+            if dim == len(spacing):
+                sitk_image.SetSpacing(spacing)
+                sitk_image.SetOrigin(origin)
+                sitk_image.SetDirection(direction)
+            else:
+                new_spacing = list(spacing)[:dim] + [1.0] * (dim - len(spacing))
+                new_origin = list(origin)[:dim] + [0.0] * (dim - len(origin))
+                sitk_image.SetSpacing(new_spacing)
+                sitk_image.SetOrigin(new_origin)
+        except Exception as e:
+            logging.getLogger(__name__).warning(f"Erro ao definir metadados geometricos SimpleITK: {e}")
 
         propriedades = {"Nome": "Desconhecido", "Inst": "", "Data": "", "Hora": "", "SeriesInstanceUID": ""}
         try:
@@ -270,7 +470,46 @@ class CarregadorDicom:
             if r_meta.HasMetaDataKey("0008|0020"): propriedades["Data"] = r_meta.GetMetaData("0008|0020")
             if r_meta.HasMetaDataKey("0008|0030"): propriedades["Hora"] = r_meta.GetMetaData("0008|0030")
             if r_meta.HasMetaDataKey("0020|000e"): propriedades["SeriesInstanceUID"] = r_meta.GetMetaData("0020|000e").strip()
-        except: pass
+            if r_meta.HasMetaDataKey("0008|0060"): propriedades["Modality"] = r_meta.GetMetaData("0008|0060").strip()
+
+            # Auto-Windowing para RM
+            if propriedades.get("Modality") == "MR":
+                # Classifica a sequência e calcula janela por percentil (sempre prioritário para RM)
+                descricao = r_meta.GetMetaData("0008|103e").strip() if r_meta.HasMetaDataKey("0008|103e") else ""
+                seq_type = MriSequenceClassifier.classificar(descricao)
+                logging.getLogger(__name__).info(f"MR Auto-Windowing: seq={seq_type}, desc='{descricao}'")
+
+                # Filtra fundo (ar) antes de calcular percentis (pula para imagens de Fase)
+                if seq_type == "PHASE":
+                    arr_tecido = np_array
+                else:
+                    try:
+                        limiar = max(50, int(np.percentile(np_array, 10)))
+                        arr_tecido = np_array[np_array > limiar]
+                        if arr_tecido.size < 100:
+                            arr_tecido = np_array
+                    except:
+                        arr_tecido = np_array
+
+                pcts = {
+                    "T1":      (1,  99),
+                    "T2":      (2,  95),
+                    "FLAIR":   (2,  96),
+                    "DWI":     (1,  99),
+                    "ADC":     (2,  98),
+                    "PHASE":   (2,  98),
+                    "GENERIC": (2,  98),
+                }
+                p_lo, p_hi = pcts.get(seq_type, (2, 98))
+                p_min = float(np.percentile(arr_tecido, p_lo))
+                p_max = float(np.percentile(arr_tecido, p_hi))
+                ww_calc = max(1.0, p_max - p_min)
+                propriedades["WindowCenter"] = float((p_min + p_max) / 2.0)
+                propriedades["WindowWidth"] = ww_calc
+                print(f"[MR WINDOWING PERCENTILE] Calculado: WL={propriedades['WindowCenter']:.1f} WW={propriedades['WindowWidth']:.1f} (seq={seq_type})", flush=True)
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
 
         # Garante que vtk_image tem SeriesInstanceUID
         vtk_image.SeriesInstanceUID = propriedades.get("SeriesInstanceUID", "")

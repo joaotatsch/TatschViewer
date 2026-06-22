@@ -156,6 +156,12 @@ class Navegador3D(QObject):
 
         # 7. Configuração da Ferramenta de Dissecção (Box Cropping)
         self.crop_widget = vtk.vtkBoxWidget2()
+        
+        # Desvincula o Botão Direito para permitir Zoom In/Out nativo do interactor
+        translator = self.crop_widget.GetEventTranslator()
+        translator.SetTranslation(vtk.vtkCommand.RightButtonPressEvent, vtk.vtkWidgetEvent.NoEvent)
+        translator.SetTranslation(vtk.vtkCommand.RightButtonReleaseEvent, vtk.vtkWidgetEvent.NoEvent)
+        
         self.crop_representation = vtk.vtkBoxRepresentation()
         self.crop_representation.SetPlaceFactor(1.0)
         self.crop_widget.SetRepresentation(self.crop_representation)
@@ -376,7 +382,7 @@ class Navegador3D(QObject):
         if self.renderizador and self.renderizador.GetRenderWindow():
             self.renderizador.GetRenderWindow().Render()
 
-    def atualizar_transfer_functions(self, ww: float, wl: float):
+    def atualizar_transfer_functions(self, ww: float, wl: float, is_mr: bool = False):
         """
         Recalcula e atualiza as funções de transferência de cor e opacidade do volume 3D
         dinamicamente com base nos valores WW/WL fornecidos.
@@ -394,25 +400,48 @@ class Navegador3D(QObject):
         if max_val <= min_val:
             max_val = min_val + 1.0
             
-        # Função de Transferência de Opacidade
         funcao_opacidade = vtk.vtkPiecewiseFunction()
-        funcao_opacidade.AddPoint(min_val - 100, 0.00)
-        funcao_opacidade.AddPoint(min_val, 0.00)
-        funcao_opacidade.AddPoint(min_val + 0.2 * ww, 0.15)
-        funcao_opacidade.AddPoint(min_val + 0.5 * ww, 0.50)
-        funcao_opacidade.AddPoint(max_val, 0.85)
-        
-        # Função de Transferência de Cor
         funcao_cor = vtk.vtkColorTransferFunction()
-        funcao_cor.AddRGBPoint(min_val - 100, 0.0, 0.0, 0.0)      # Ar (Preto)
-        funcao_cor.AddRGBPoint(min_val, 0.45, 0.25, 0.25)        # Tecido mole escuro
-        funcao_cor.AddRGBPoint(min_val + 0.2 * ww, 0.85, 0.65, 0.55) # Tecido fibroso
-        funcao_cor.AddRGBPoint(min_val + 0.5 * ww, 0.95, 0.90, 0.80) # Marfim
-        funcao_cor.AddRGBPoint(max_val, 1.0, 1.0, 1.0)           # Branco puro
+
+        if is_mr:
+            # Curva sigmoide para RM: fundo transparente, tecido semi-opaco
+            # Evita o "paralelepipedo" da rampa linear
+            low  = min_val + 0.05 * ww   # 5%: inicio do tecido
+            mid  = min_val + 0.40 * ww   # 40%: tecido intermediario
+            high = min_val + 0.85 * ww   # 85%: tecido de alto sinal
+
+            funcao_opacidade.AddPoint(min_val, 0.00)  # fundo preto: transparente
+            funcao_opacidade.AddPoint(low,     0.00)  # ruido: transparente
+            funcao_opacidade.AddPoint(mid,     0.08)  # tecido mole
+            funcao_opacidade.AddPoint(high,    0.35)  # alto sinal
+            funcao_opacidade.AddPoint(max_val, 0.55)  # pico de sinal
+
+            funcao_cor.AddRGBPoint(min_val, 0.00, 0.00, 0.00)  # preto
+            funcao_cor.AddRGBPoint(low,     0.05, 0.05, 0.05)  # quase preto
+            funcao_cor.AddRGBPoint(mid,     0.50, 0.50, 0.50)  # cinza
+            funcao_cor.AddRGBPoint(high,    0.85, 0.85, 0.85)  # cinza claro
+            funcao_cor.AddRGBPoint(max_val, 1.00, 1.00, 1.00)  # branco
+        else:
+            # Função de Transferência de Opacidade (CT)
+            funcao_opacidade.AddPoint(min_val - 100, 0.00)
+            funcao_opacidade.AddPoint(min_val, 0.00)
+            funcao_opacidade.AddPoint(min_val + 0.2 * ww, 0.15)
+            funcao_opacidade.AddPoint(min_val + 0.5 * ww, 0.50)
+            funcao_opacidade.AddPoint(max_val, 0.85)
+            
+            # Função de Transferência de Cor (CT)
+            funcao_cor.AddRGBPoint(min_val - 100, 0.0, 0.0, 0.0)      # Ar (Preto)
+            funcao_cor.AddRGBPoint(min_val, 0.45, 0.25, 0.25)        # Tecido mole escuro
+            funcao_cor.AddRGBPoint(min_val + 0.2 * ww, 0.85, 0.65, 0.55) # Tecido fibroso
+            funcao_cor.AddRGBPoint(min_val + 0.5 * ww, 0.95, 0.90, 0.80) # Marfim
+            funcao_cor.AddRGBPoint(max_val, 1.0, 1.0, 1.0)           # Branco puro
         
         propriedades = self.volume_ator.GetProperty()
         propriedades.SetColor(funcao_cor)
         propriedades.SetScalarOpacity(funcao_opacidade)
+        funcao_opacidade.Modified()
+        funcao_cor.Modified()
+        propriedades.Modified()
         
         if self.renderizador and self.renderizador.GetRenderWindow():
             self.renderizador.GetRenderWindow().Render()

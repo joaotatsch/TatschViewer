@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from PyQt6.QtCore import QThread, pyqtSignal
+from carregamento.carregamento_dicom import CarregadorDicom
+from core.utils_profiling import profiler_time
 
 class ThreadCarregamento(QThread):
     resultado = pyqtSignal(object)
@@ -14,7 +16,10 @@ class ThreadCarregamento(QThread):
         self.series_id = series_id
         self.silencioso = silencioso
         self.prefetch = prefetch
+        self._cancelled = False
+        self._paused = False
 
+    @profiler_time
     def run(self):
         try:
             resultado = self.coordenador.carregar_serie(self.diretorio, self.series_id)

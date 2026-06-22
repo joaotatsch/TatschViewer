@@ -161,7 +161,7 @@ def excepthook_personalizado(exctype, value, tb):
     
     try:
         with open(nome_arquivo, "w", encoding="utf-8") as f:
-            f.write("=== TATSCHVIEWER V1 CRASH REPORT ===\n")
+            f.write("=== TATSCHVIEWER 1.5 CRASH REPORT ===\n")
             f.write(f"Data e Hora: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"Exceção Fatal: {exctype.__name__}: {value}\n\n")
             f.write("Traceback de Execução:\n")
@@ -172,7 +172,7 @@ def excepthook_personalizado(exctype, value, tb):
     try:
         caminho_home = os.path.join(os.path.expanduser("~"), nome_arquivo)
         with open(caminho_home, "w", encoding="utf-8") as f:
-            f.write("=== TATSCHVIEWER V1 CRASH REPORT ===\n")
+            f.write("=== TATSCHVIEWER 1.5 CRASH REPORT ===\n")
             f.write(f"Data e Hora: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"Exceção Fatal: {exctype.__name__}: {value}\n\n")
             f.write("Traceback de Execução:\n")

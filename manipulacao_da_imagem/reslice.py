@@ -94,28 +94,33 @@ class OperadorInteracaoReslice:
         transform.RotateWXYZ(angle_deg, axis[0], axis[1], axis[2])
         transform.Translate(-centro[0], -centro[1], -centro[2])
         
-        # Gira a Normal do plano alvo
-        new_normal = transform.TransformDoubleVector(plane_alvo.GetNormal())
-        plane_alvo.SetNormal(new_normal)
+        visoes_alvo_rotacao = [v for v in ["Axial", "Coronal", "Sagital"] if v != visao_atual]
+        
+        for alvo in visoes_alvo_rotacao:
+            plane_alvo_iter = self.nav.planos[alvo]
+            
+            # Gira a Normal do plano alvo
+            new_normal = transform.TransformDoubleVector(plane_alvo_iter.GetNormal())
+            plane_alvo_iter.SetNormal(new_normal)
 
-        # Gira a Origem (ponto âncora) do plano alvo
-        new_origin = transform.TransformDoublePoint(plane_alvo.GetOrigin())
-        plane_alvo.SetOrigin(new_origin)
+            # Gira a Origem (ponto âncora) do plano alvo
+            new_origin = transform.TransformDoublePoint(plane_alvo_iter.GetOrigin())
+            plane_alvo_iter.SetOrigin(new_origin)
 
-        # Atualiza a Câmera
-        renderer_alvo = self.nav.renderers_2d[visao_alvo]
-        cam = renderer_alvo.GetActiveCamera()
-        new_up = transform.TransformDoubleVector(cam.GetViewUp())
+            # Atualiza a Câmera
+            renderer_alvo_iter = self.nav.renderers_2d[alvo]
+            cam = renderer_alvo_iter.GetActiveCamera()
+            new_up = transform.TransformDoubleVector(cam.GetViewUp())
 
-        # A câmera deve olhar para a nova origem e se afastar na direção da nova normal
-        cam.SetFocalPoint(new_origin[0], new_origin[1], new_origin[2])
-        cam.SetPosition(new_origin[0] - new_normal[0]*500.0, 
-                        new_origin[1] - new_normal[1]*500.0, 
-                        new_origin[2] - new_normal[2]*500.0)
-        cam.SetViewUp(new_up)
+            # A câmera deve olhar para a nova origem e se afastar na direção da nova normal
+            cam.SetFocalPoint(new_origin[0], new_origin[1], new_origin[2])
+            cam.SetPosition(new_origin[0] - new_normal[0]*500.0, 
+                            new_origin[1] - new_normal[1]*500.0, 
+                            new_origin[2] - new_normal[2]*500.0)
+            cam.SetViewUp(new_up)
 
-        # CRÍTICO: Evita que o plano saia do campo de visão da câmera gerando tela preta
-        renderer_alvo.ResetCameraClippingRange()
+            # CRÍTICO: Evita que o plano saia do campo de visão da câmera gerando tela preta
+            renderer_alvo_iter.ResetCameraClippingRange()
 
         self.nav.atualizar_bussola()
 

@@ -1,37 +1,5 @@
 # -*- coding: utf-8 -*-
 
-HTML_BOAS_VINDAS = (
-    "<h2 align='center'>Bem-vindo ao TatschViewer</h2>"
-    "<p align='center'>Arraste e solte uma pasta DICOM ou arquivo .zip aqui para começar.</p>"
-    "<br><br>"
-    "<table width='80%' align='center' cellpadding='15' style='border-collapse: collapse;'>"
-    "<tr>"
-    "<td width='50%' valign='top' style='border-right: 1px solid #3d3d3d;'>"
-    "<h3 align='center' style='color: #007acc;'>Navegação 2D (MPR)</h3>"
-    "<ul style='line-height: 1.6;'>"
-    "<li><b>Botão Esquerdo (Fundo):</b> Ajuste de Contraste</li>"
-    "<li><b>Botão Esquerdo (Linhas):</b> Arrastar fatias / Espessura MIP</li>"
-    "<li><b>Scroll (Roda):</b> Navegar entre Fatias</li>"
-    "<li><b>Botão do Meio:</b> Mover a Imagem (Pan)</li>"
-    "<li><b>Botão Direito:</b> Zoom In / Out</li>"
-    "<li><b>Duplo-Clique:</b> Maximizar Tela</li>"
-    "<li><b>Crosshair:</b> Segure a letra <b>\"C\"</b> ou ative o botão para sincronizar as telas</li>"
-    "</ul>"
-    "</td>"
-    "<td width='50%' valign='top'>"
-    "<h3 align='center' style='color: #e74c3c;'>Navegação 3D (Volume)</h3>"
-    "<ul style='line-height: 1.6;'>"
-    "<li><b>Botão Esquerdo:</b> Rotacionar o modelo 3D</li>"
-    "<li><b style='color: #f1c40f;'>Shift + Esquerdo:</b> Janelamento 3D (Transparência)</li>"
-    "<li><b>Botão do Meio:</b> Mover o modelo 3D (Pan)</li>"
-    "<li><b>Botão Direito:</b> Zoom In / Out</li>"
-    "<li><b>Duplo-Clique:</b> Maximizar Tela</li>"
-    "</ul>"
-    "</td>"
-    "</tr>"
-    "</table>"
-)
-
 HTML_DICAS_NAVEGACAO = (
     "<table width='100%' align='center' cellpadding='15' style='border-collapse: collapse;'>"
     "<tr>"

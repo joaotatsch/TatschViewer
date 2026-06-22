@@ -7,7 +7,9 @@ import pydicom
 import time
 import json
 import hashlib
+from core.utils_profiling import profiler_time
 
+@profiler_time
 def _ler_meta_rapido(caminho):
     try:
         # Tenta a otimização extrema: lê apenas os primeiros 4096 bytes do arquivo
@@ -25,14 +27,17 @@ def _ler_meta_rapido(caminho):
         try:
             # Parsing em RAM: passa o buffer para io.BytesIO e força a leitura dos cabeçalhos
             ds = pydicom.dcmread(io.BytesIO(chunk), stop_before_pixels=True, force=True, specific_tags=specific_tags)
+            uid = getattr(ds, 'SeriesInstanceUID', "")
+            if not uid or not hasattr(ds, 'ImageOrientationPatient') or not hasattr(ds, 'ImagePositionPatient') or not hasattr(ds, 'SeriesNumber'):
+                raise ValueError("Tags cruciais (UID/IOP/IPP/Num) ausentes no chunk de 4KB")
         except Exception:
             # Fallback nativo: caso o dicionário exceda 4KB ou falte tags críticas, lê do arquivo diretamente
             try:
-                ds = pydicom.dcmread(caminho, stop_before_pixels=True, specific_tags=specific_tags)
+                ds = pydicom.dcmread(caminho, stop_before_pixels=True, force=True, specific_tags=specific_tags)
+                uid = getattr(ds, 'SeriesInstanceUID', "")
             except Exception:
                 return None
         
-        uid = getattr(ds, 'SeriesInstanceUID', "")
         if not uid:
             return None
         
@@ -75,6 +80,7 @@ def _ler_meta_rapido(caminho):
     except Exception:
         return None
 
+@profiler_time
 def _listar_arquivos_recursivo(caminho_pasta):
     arquivos = []
     pilha = [caminho_pasta]
@@ -103,6 +109,7 @@ class CarregadorPastasDicom(QObject):
         hash_nome = hashlib.md5(caminho_pasta.encode('utf-8')).hexdigest()
         return os.path.join(dir_cache, f"{hash_nome}.json")
     
+    @profiler_time
     def escanear_pasta(self, caminho_pasta: str, progress_callback=None) -> list:
         t_scan_total = time.perf_counter()
         t_walk = time.perf_counter()
@@ -151,6 +158,7 @@ class CarregadorPastasDicom(QObject):
             uid, iop, is_scout = chave
             if iop and len(iop) == 6:
                 normal = np.cross(iop[:3], iop[3:])
+                normal = normal / np.linalg.norm(normal)
                 itens.sort(key=lambda x: np.dot(x["ipp"], normal))
             arquivos_limpos = [x["file"] for x in itens]
             

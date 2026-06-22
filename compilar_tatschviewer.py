@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Script de Compilação Automatizada do TatschViewer V1 (Release Candidate).
+Script de Compilação Automatizada do TatschViewer 1.5 (Release Candidate).
 Empacota a aplicação com todas as dependências ocultas de C++ (VTK, SimpleITK)
 e os recursos visuais (icones) em um diretório executável standalone.
 """
@@ -37,7 +37,7 @@ def compilar_aplicativo():
         sys.exit(1)
         
     print("\n" + "="*70)
-    print("[COMPILAÇÃO] Iniciando empacotamento do TatschViewer V1 para Grau Médico...")
+    print("[COMPILAÇÃO] Iniciando empacotamento do TatschViewer 1.5 para Grau Médico...")
     print("="*70)
     
     # Definição do separador de arquivos correto para --add-data (; no Windows, : no Unix)
@@ -91,6 +91,7 @@ def compilar_aplicativo():
         "PyInstaller",
         "--name=TatschViewer",
         "--noconfirm",
+        "--onedir",    # Gera pasta com executável leve para inicialização rápida
         "--windowed",  # Desativa o console de terminal em segundo plano (GUI pura)
         "--icon=icones/logo_tatsch.ico",  # Ícone do executável para Windows Explorer
         f"--add-data=icones{separador}icones",  # Copia os arquivos de ícones clínicos
@@ -111,8 +112,8 @@ def compilar_aplicativo():
         subprocess.run(comando, check=True)
         
         print("\n" + "="*70)
-        print("[SUCESSO] O TatschViewer V1 foi compilado com êxito!")
-        print("O pacote standalone (com todas as DLLs e assets) está localizado em:")
+        print("[SUCESSO] O TatschViewer 1.5 foi compilado com êxito!")
+        print("A pasta standalone (otimizada para inicialização rápida) está localizada em:")
         print(f" -> {os.path.abspath('dist/TatschViewer')}")
         print("="*70 + "\n")
         

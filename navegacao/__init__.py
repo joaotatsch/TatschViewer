@@ -297,7 +297,7 @@ class FiltroEventosDicom(QObject):
                                             
                                             
                                             # Dispara a Thread na MainWindow
-                                            main_window.iniciar_subtracao_semente(index_itk)
+                                            main_window.gerenciador_processamento.iniciar_subtracao_semente(index_itk)
                                         except Exception as e:
                                             main_window.statusBar().showMessage(f"Erro ao converter semente: {str(e)}")
     

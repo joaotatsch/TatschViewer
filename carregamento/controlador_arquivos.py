@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
 import os
+import re
 import SimpleITK as sitk
 from PyQt6.QtCore import QObject
 from carregamento.carregamento_arquivos_zip import CarregadorArquivosZip
 from carregamento.carregamento_pastas_dicom import CarregadorPastasDicom
+from core.utils_profiling import profiler_time
 
 class ControladorArquivos(QObject):
     def __init__(self, main_window=None):
         super().__init__()
         self.main_window = main_window
 
+    @profiler_time
     def descompactar_zip(self, caminho_zip: str):
         carregador = CarregadorArquivosZip()
         return carregador.extrair_e_carregar(caminho_zip)
 
+    @profiler_time
     def carregar_nrrd(self, caminho_nrrd: str):
         return sitk.ReadImage(caminho_nrrd)
 
+    @profiler_time
     def escanear_dicom(self, diretorio: str, progress_callback=None):
         varredor = CarregadorPastasDicom()
         return varredor.escanear_pasta(diretorio, progress_callback=progress_callback)
@@ -41,6 +46,7 @@ class ControladorArquivos(QObject):
             # SEMPRE cria uma subpasta dedicada para evitar poluição de diretório com arquivos não-DICOM
             num = s.get('SeriesNumber')
             nome_pasta = f"Serie_{num}_Anonimizada" if num else f"Serie_{s['SeriesID'][-6:]}_Anonimizada"
+            nome_pasta = re.sub(r'[<>:"/\\|?*]', '_', nome_pasta)
             pasta_alvo = os.path.join(diretorio_destino, nome_pasta)
 
             # Closure de progresso com os valores acumulados

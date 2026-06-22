@@ -1,4 +1,5 @@
 import os
+import re
 import SimpleITK as sitk
 from PyQt6.QtCore import QThread, pyqtSignal, pyqtSlot
 from anonimizador import AnonimizadorDicom
@@ -36,12 +37,16 @@ class ThreadAnonimizacao(QThread):
                     self.concluido.emit(False, "Cancelado pelo usuário.")
                     return
 
-                dir_busca = s.get("Directory", self.diretorio_ativo)
-                arquivos_completos = sitk.ImageSeriesReader.GetGDCMSeriesFileNames(dir_busca, s["SeriesID"])
+                arquivos_completos = s.get("Files", [])
+                if not arquivos_completos:
+                    dir_busca = s.get("Directory", self.diretorio_ativo)
+                    uid_real = s["SeriesID"].split('_')[0]
+                    arquivos_completos = sitk.ImageSeriesReader.GetGDCMSeriesFileNames(dir_busca, uid_real)
                 
                 pasta_alvo = self.diretorio_destino
                 if self.exportar_todas:
                     nome_pasta = f"Serie_{s['SeriesNumber']}" if s.get("SeriesNumber") else f"Serie_{s['SeriesID'][-6:]}"
+                    nome_pasta = re.sub(r'[<>:"/\\|?*]', '_', nome_pasta)
                     pasta_alvo = os.path.join(self.diretorio_destino, nome_pasta)
 
                 # Precisamos passar o valor atual por default argument para criar a closure correta
@@ -80,8 +85,11 @@ class ControladorExportacao:
         total_arquivos = 0
         for s in series_alvo:
             if s:
-                dir_busca = s.get("Directory", diretorio_ativo)
-                arqs = sitk.ImageSeriesReader.GetGDCMSeriesFileNames(dir_busca, s["SeriesID"])
+                arqs = s.get("Files", [])
+                if not arqs:
+                    dir_busca = s.get("Directory", diretorio_ativo)
+                    uid_real = s["SeriesID"].split('_')[0]
+                    arqs = sitk.ImageSeriesReader.GetGDCMSeriesFileNames(dir_busca, uid_real)
                 total_arquivos += len(arqs)
         return total_arquivos
 

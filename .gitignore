@@ -7,3 +7,8 @@ build/
 *.log
 .venv/
 venv/
+_arquivados/
+
+*crash_report.txt
+
+testes_geometria/

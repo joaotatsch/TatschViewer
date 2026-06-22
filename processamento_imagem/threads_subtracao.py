@@ -380,3 +380,161 @@ class ThreadSubtracaoOssea(QThread):
             import traceback
             traceback.print_exc()
             self.erro.emit(str(e))
+
+class ThreadExtracaoVascularRMRapida(QThread):
+    progresso_sinal = pyqtSignal(int, str)
+    log_sinal = pyqtSignal(str)
+    virtual_sinal = pyqtSignal(object, object, str)  # vtk_image, sitk_image, nome_serie
+    erro_sinal = pyqtSignal(str)
+
+    def __init__(self, sitk_image, seed_index):
+        super().__init__()
+        self.sitk_image = sitk_image
+        self.seed_index = seed_index
+
+    def run(self):
+        try:
+            import time
+            import gc
+            import numpy as np
+            import vtk
+            from vtkmodules.util import numpy_support
+            import SimpleITK as sitk
+
+            self.log_sinal.emit("Iniciando Subtração Guiada MRA (Anti-Leaking)...")
+            
+            t0_global = time.time()
+
+            # PASSO 1: SKULL STRIPPING ULTRA-RÁPIDO (Corte das Pontes de Gordura em < 1s)
+            self.progresso_sinal.emit(10, "Isolando cavidade central (Erosão)...")
+            t_start = time.time()
+            
+            # ESTRATÉGIA ULTRA-RÁPIDA (Trabalhar em baixa resolução para milissegundos de tempo)
+            shrink = sitk.ShrinkImageFilter()
+            shrink.SetShrinkFactor(2)
+            img_small = shrink.Execute(self.sitk_image)
+            
+            max_val = float(sitk.GetArrayViewFromImage(img_small).max())
+            mask_small = sitk.BinaryThreshold(img_small, lowerThreshold=15.0, upperThreshold=max_val)
+            
+            # Preenche buracos em baixa resolução (muito mais rápido, de 7s cai para 0.1s)
+            mask_small = sitk.BinaryFillhole(mask_small)
+            
+            # Erode a cabeça sólida em [6, 6, 6] (equivalente a arrancar 12 pixels da imagem original)
+            mask_small_erodida = sitk.BinaryErode(mask_small, [6, 6, 6])
+            
+            # Retorna para o tamanho original
+            resampler = sitk.ResampleImageFilter()
+            resampler.SetReferenceImage(self.sitk_image)
+            resampler.SetInterpolator(sitk.sitkNearestNeighbor)
+            mask_erodida = resampler.Execute(mask_small_erodida)
+            
+            # Multiplica a imagem original pela mascara erodida profunda (Isola o Cerebro)
+            cerebro_isolado = sitk.Mask(self.sitk_image, mask_erodida)
+            print(f"[SENSOR] Erosao da Pele: {time.time() - t_start:.2f}s", flush=True)
+
+            # PASSO 2: CÁLCULO DE LIMIAR SUPERIOR (Vetorizado)
+            self.progresso_sinal.emit(30, "Calculando Limiar Superior Vascular...")
+            t_start = time.time()
+            array_cerebro = sitk.GetArrayViewFromImage(cerebro_isolado)
+            
+            # Filtra apenas os pixels do cérebro
+            array_validos = array_cerebro[array_cerebro > 0]
+            if len(array_validos) > 0:
+                # O percentil 91 é a "Barreira de Contenção Oftálmica".
+                # Se baixarmos para P87 ou P85, a enchente atravessa a artéria oftálmica e inunda
+                # a gordura retrobulbar (órbitas) que fica no fundo do crânio.
+                thresh_value = float(np.percentile(array_validos, 91.0))
+            else:
+                thresh_value = 0.0
+                
+            max_value = float(array_cerebro.max())
+            print(f"[SENSOR] Calculo Percentil (Threshold): {time.time() - t_start:.2f}s", flush=True)
+
+            # PASSO 3: CRESCIMENTO DE REGIÃO ENGAIOLADO (Anti-Leaking)
+            self.progresso_sinal.emit(50, "Crescimento Engaiolado de Região (Anti-Leaking)...")
+            t_start = time.time()
+            
+            seed_x = max(0, int(self.seed_index[0]))
+            seed_y = max(0, int(self.seed_index[1]))
+            seed_z = max(0, int(self.seed_index[2]))
+            semente = (seed_x, seed_y, seed_z)
+            
+            seed_intensity_caged = float(cerebro_isolado.GetPixel(seed_x, seed_y, seed_z))
+            
+            # MATEMÁTICA ANTI-LEAKING GLOBAL:
+            if seed_intensity_caged >= thresh_value:
+                lower_bound = thresh_value
+            else:
+                # Se o vaso for marginal, permite descer até o percentil 90 absoluto
+                lower_bound = max(seed_intensity_caged * 0.95, float(np.percentile(array_validos, 90.0)) if len(array_validos) > 0 else 0)
+            
+            print(f"[SENSOR DEBUG] Semente na Gaiola: {seed_intensity_caged:.2f} | Chão Vascular (P91): {thresh_value:.2f} | Lower Bound Seguro: {lower_bound:.2f}", flush=True)
+            
+            if seed_intensity_caged < lower_bound:
+                self.log_sinal.emit("⚠️ Semente caiu fora do cérebro ou em área apagada. Clique mais ao centro!")
+                
+            # Inicia na semente e inunda tudo que seja mais brilhante que o lower_bound
+            vasos_mask = sitk.ConnectedThreshold(cerebro_isolado, seedList=[semente], lower=lower_bound, upper=max_value, replaceValue=1)
+            print(f"[SENSOR] ConnectedThreshold (Vaso Isolado): {time.time() - t_start:.2f}s", flush=True)
+
+            # PASSO 4: CORTE FINAL
+            self.progresso_sinal.emit(85, "Aplicando Corte Final...")
+            t_start = time.time()
+            # Multiplica a imagem original apenas pela mascara do vaso extraido
+            resultado_final_sitk = sitk.Mask(self.sitk_image, vasos_mask)
+            print(f"[SENSOR] Injeção Final: {time.time() - t_start:.2f}s", flush=True)
+            print(f"[SENSOR] TEMPO TOTAL MRA: {time.time() - t0_global:.2f}s", flush=True)
+
+            # VTK Export
+            self.progresso_sinal.emit(95, "Convertendo para formato VTK...")
+            np_array = sitk.GetArrayFromImage(resultado_final_sitk)
+            if not np_array.flags["C_CONTIGUOUS"]:
+                np_array = np.ascontiguousarray(np_array)
+            
+            spacing = resultado_final_sitk.GetSpacing()
+            origin = resultado_final_sitk.GetOrigin()
+            direction = resultado_final_sitk.GetDirection()
+            
+            dims = np_array.shape
+            nx, ny, nz = dims[2], dims[1], dims[0]
+            
+            if len(origin) >= 3:
+                origin_vtk = [-origin[0], -origin[1], origin[2]]
+            else:
+                origin_vtk = [0.0, 0.0, 0.0]
+                
+            vtk_type = numpy_support.get_vtk_array_type(np_array.dtype)
+            vtk_array = numpy_support.numpy_to_vtk(num_array=np_array.ravel(), deep=False, array_type=vtk_type)
+            
+            vtk_image = vtk.vtkImageData()
+            vtk_image.SetDimensions(nx, ny, nz)
+            vtk_image.SetSpacing(*spacing)
+            vtk_image.SetOrigin(*origin_vtk)
+            vtk_image.GetPointData().SetScalars(vtk_array)
+            
+            mat = vtk.vtkMatrix3x3()
+            for r in range(3):
+                for c in range(3):
+                    val = direction[r*3 + c]
+                    mat.SetElement(r, c, -val if r in (0,1) else val)
+            vtk_image.SetDirectionMatrix(mat)
+            vtk_image.ComputeBounds()
+            
+            vtk_image._np_ref = np_array
+            
+            min_val = float(np.min(np_array))
+            p99_9 = float(np.percentile(np_array, 99.9))
+            if p99_9 > min_val:
+                ww = p99_9 - min_val
+                wl = min_val + (ww / 2.0)
+                vtk_image.GetScalarRange()
+                vtk_image._mr_windowing = (ww, wl)
+
+            self.progresso_sinal.emit(100, "Concluído!")
+            self.log_sinal.emit("Subtração Guiada MR Concluída!")
+            self.virtual_sinal.emit(vtk_image, resultado_final_sitk, "Série Virtual: [SUB MR] MRA Rápida (Semente)")
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            self.erro_sinal.emit(str(e))
