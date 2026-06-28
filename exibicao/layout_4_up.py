@@ -13,13 +13,52 @@ class QuadranteVisualizador(QWidget):
     """
     def __init__(self, nome: str, parent=None):
         super().__init__(parent)
-        self.layout = QVBoxLayout(self)
+        self.nome = nome
+        from PyQt6.QtWidgets import QHBoxLayout, QScrollBar
+        self.layout = QHBoxLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)
-        self.layout.setSpacing(0)
+        self.layout.setSpacing(2)
         
         # Interator VTK
         self.interactor = QVTKRenderWindowInteractor(self)
-        self.layout.addWidget(self.interactor)
+        self.layout.addWidget(self.interactor, stretch=1)
+        
+        # ScrollBar Vertical
+        self.scrollbar = QScrollBar(Qt.Orientation.Vertical, self)
+        self.scrollbar.setStyleSheet("""
+            QScrollBar:vertical {
+                background: #1a1a1a;
+                width: 14px;
+                margin: 0px 0px 0px 0px;
+                border: 1px solid #111111;
+                border-radius: 6px;
+            }
+            QScrollBar::handle:vertical {
+                background: #4a4a4a;
+                min-height: 30px;
+                border-radius: 5px;
+                margin: 2px;
+            }
+            QScrollBar::handle:vertical:hover {
+                background: #6a6a6a;
+            }
+            QScrollBar::handle:vertical:pressed {
+                background: #8a8a8a;
+            }
+            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+                height: 0px;
+            }
+            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+                background: none;
+            }
+        """)
+        self.scrollbar.setMinimum(0)
+        self.scrollbar.setMaximum(0)
+        self.scrollbar.valueChanged.connect(self._on_scrollbar_changed)
+        if "3D" in nome.upper():
+            self.scrollbar.hide()
+        self.layout.addWidget(self.scrollbar)
+
         
         # Inicializa o Renderizador VTK associado
         self.renderer = vtk.vtkRenderer()
@@ -69,7 +108,10 @@ class QuadranteVisualizador(QWidget):
         item = main_window.list_series.currentItem()
         if item:
             dados = item.data(Qt.ItemDataRole.UserRole)
-            main_window.carregar_serie_no_quadrante(dados, self)
+            if hasattr(main_window, 'gerenciador_arquivos') and hasattr(main_window.gerenciador_arquivos, 'carregar_serie_no_quadrante'):
+                main_window.gerenciador_arquivos.carregar_serie_no_quadrante(dados, self)
+            elif hasattr(main_window, 'carregar_serie_no_quadrante'):
+                main_window.carregar_serie_no_quadrante(dados, self)
         event.acceptProposedAction()
 
 
@@ -77,6 +119,82 @@ class QuadranteVisualizador(QWidget):
         super().resizeEvent(event)
         self.label.adjustSize()
         self.label.move(10, self.height() - self.label.height() - 35)
+
+    def _on_scrollbar_changed(self, value):
+        if self.scrollbar.signalsBlocked():
+            return
+            
+        main_window = self.window()
+        if not hasattr(main_window, 'coordenador_navegacao') or not main_window.coordenador_navegacao:
+            return
+            
+        nome_visao = self.nome.capitalize()
+        if nome_visao == "3d reconstruction":
+            return
+            
+        nav = main_window.coordenador_navegacao.navegador_2d
+        
+        nome_visao_raw = self.nome
+        nome_visao_cap = self.nome.capitalize()
+        plane = nav.planos.get(nome_visao_raw) or nav.planos.get(nome_visao_cap)
+        
+        if not plane:
+            if len(nav.planos) > 0:
+                plane = list(nav.planos.values())[0]
+            else:
+                return
+        if not nav.volume_ativo:
+            return
+            
+        bounds = nav.volume_ativo.GetBounds()
+        dims = nav.volume_ativo.GetDimensions()
+        
+        normal = plane.GetNormal()
+        axis = 0 if abs(normal[0]) > 0.5 else (1 if abs(normal[1]) > 0.5 else 2)
+        b_min = axis * 2
+        b_max = axis * 2 + 1
+        
+        if dims[axis] <= 1:
+            new_pos = bounds[b_min]
+        else:
+            new_pos = bounds[b_min] + value * (bounds[b_max] - bounds[b_min]) / (dims[axis] - 1)
+        
+        current_origin = list(plane.GetOrigin())
+        current_origin[axis] = new_pos
+        plane.SetOrigin(current_origin)
+        
+        # Renderizar de forma segura todas as visões para atualizar crosshairs
+        for q in main_window.coordenador_exibicao.widget_layout_ativo.visoes.values():
+            if hasattr(q, 'interactor') and q.interactor and q.interactor.GetRenderWindow():
+                q.interactor.GetRenderWindow().Render()
+
+    def sincronizar_scrollbar(self, plane, nav_volume_ativo):
+        if not hasattr(self, 'scrollbar') or self.scrollbar.isHidden():
+            return
+            
+        normal = plane.GetNormal()
+        axis = 0 if abs(normal[0]) > 0.5 else (1 if abs(normal[1]) > 0.5 else 2)
+        b_min = axis * 2
+        b_max = axis * 2 + 1
+        
+        bounds = nav_volume_ativo.GetBounds()
+        dims = nav_volume_ativo.GetDimensions()
+        
+        if self.scrollbar.maximum() != dims[axis] - 1:
+            self.scrollbar.setMinimum(0)
+            self.scrollbar.setMaximum(max(0, dims[axis] - 1))
+            
+        plane_pos = plane.GetOrigin()[axis]
+        if bounds[b_max] > bounds[b_min] and dims[axis] > 1:
+            idx = int(round((plane_pos - bounds[b_min]) / (bounds[b_max] - bounds[b_min]) * (dims[axis] - 1)))
+        else:
+            idx = 0
+            
+        idx = max(0, min(idx, dims[axis] - 1))
+        
+        self.scrollbar.blockSignals(True)
+        self.scrollbar.setValue(idx)
+        self.scrollbar.blockSignals(False)
 
 
 class FiltroDuploClique(QObject):
@@ -86,6 +204,11 @@ class FiltroDuploClique(QObject):
         self.quadrante = quadrante
         
     def eventFilter(self, obj, event):
+        if event.type() == QEvent.Type.MouseButtonPress:
+            main_window = self.layout.window()
+            if hasattr(main_window, 'active_quadrante'):
+                main_window.active_quadrante = self.quadrante
+                
         if event.type() == QEvent.Type.MouseButtonDblClick:
             if event.button() == Qt.MouseButton.LeftButton:
                 self.layout.alternar_maximizacao(self.quadrante)

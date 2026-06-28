@@ -465,17 +465,22 @@ class Navegador3D(QObject):
 
     def update_volume_data(self, novo_vtk_image):
         if self.volume_ator:
-            mapper = self.volume_ator.GetMapper()
-            mapper.SetInputData(novo_vtk_image)
-            mapper.SetScalarModeToUsePointData()
-            mapper.Update()
-            
-            bounds = novo_vtk_image.GetBounds()
-            cx = (bounds[0] + bounds[1]) / 2.0
-            cy = (bounds[2] + bounds[3]) / 2.0
-            cz = (bounds[4] + bounds[5]) / 2.0
-            
-            cam = self.renderizador.GetActiveCamera()
-            cam.SetFocalPoint(cx, cy, cz)
-            # Removemos os ResetCamera() para manter a posição travada no Object Pool
+            try:
+                mapper = self.volume_ator.GetMapper()
+                mapper.SetInputData(novo_vtk_image)
+                mapper.SetScalarModeToUsePointData()
+                mapper.Update()
+                
+                bounds = novo_vtk_image.GetBounds()
+                cx = (bounds[0] + bounds[1]) / 2.0
+                cy = (bounds[2] + bounds[3]) / 2.0
+                cz = (bounds[4] + bounds[5]) / 2.0
+                
+                if self.renderizador and hasattr(self.renderizador, 'GetActiveCamera'):
+                    cam = self.renderizador.GetActiveCamera()
+                    if cam:
+                        cam.SetFocalPoint(cx, cy, cz)
+                # Removemos os ResetCamera() para manter a posição travada no Object Pool
+            except RuntimeError:
+                pass # C++ object has been deleted
 

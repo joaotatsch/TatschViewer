@@ -512,7 +512,12 @@ class Navegador2D(QObject):
             plane.SetOrigin(center)
             mapper.SetSlicePlane(plane)
             
-            # Atualiza apenas o FocalPoint para o novo centro geométrico
-            cam = self.renderers_2d[visao].GetActiveCamera()
-            cam.SetFocalPoint(center)
-            # Removemos os ResetCamera() para manter a posição anterior travada!
+            try:
+                # Atualiza apenas o FocalPoint para o novo centro geométrico
+                if visao in self.renderers_2d and self.renderers_2d[visao]:
+                    cam = self.renderers_2d[visao].GetActiveCamera()
+                    if cam:
+                        cam.SetFocalPoint(center)
+                # Removemos os ResetCamera() para manter a posição anterior travada!
+            except RuntimeError:
+                continue

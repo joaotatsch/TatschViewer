@@ -454,6 +454,16 @@ class GerenciadorEventosArquivos:
         if not dados or not isinstance(dados, dict):
             return
             
+        # Reset para visualização Axial 1-up ao dar duplo clique se estiver em Múltiplas Telas
+        if hasattr(self.main_window, 'coordenador_exibicao') and hasattr(self.main_window.coordenador_exibicao, 'widget_layout_ativo'):
+            class_name = type(self.main_window.coordenador_exibicao.widget_layout_ativo).__name__
+            if class_name == "LayoutDinamico":
+                # Força o reset completo para MPR/1-up antes de prosseguir com o carregamento da nova imagem
+                self.main_window._layout_explicitamente_escolhido = False
+                if hasattr(self.main_window, 'gerenciador_layouts'):
+                    self.main_window.gerenciador_layouts.on_layout_selecionado("MPR")
+                    self.main_window.gerenciador_layouts.on_visualizacao_changed("1-up")
+            
         if dados.get("virtual"):
             self.main_window.statusBar().showMessage("Carregando Série Virtual instantaneamente...")
             self.main_window.gerenciador_processamento.on_subtracao_concluida(dados["sitk_image"])

@@ -14,7 +14,9 @@ from controladores.gerenciador_eventos_arquivos import GerenciadorEventosArquivo
 from controladores.gerenciador_processamento import GerenciadorProcessamento
 from controladores.gerenciador_ferramentas import GerenciadorFerramentas
 from controladores.gerenciador_layouts import GerenciadorLayouts
+from controladores.gerenciador_eventos_teclado import FiltroTeclado
 from core.utils_profiling import profiler_time
+from PyQt6.QtWidgets import QApplication
 
 class MainWindow(QMainWindow):
     """
@@ -45,6 +47,14 @@ class MainWindow(QMainWindow):
         self.gerenciador_layouts = GerenciadorLayouts(self)
 
         # Referências a instâncias de volume e cache
+        self.active_quadrante = None
+        self.filtro_teclado = FiltroTeclado(self)
+        app = QApplication.instance()
+        if app:
+            app.installEventFilter(self.filtro_teclado)
+        else:
+            self.installEventFilter(self.filtro_teclado)
+        
         self.diretorio_ativo = ""
         self.series_carregadas = []
         self._sitk_img_ref = None
@@ -73,6 +83,15 @@ class MainWindow(QMainWindow):
 
     def dropEvent(self, event):
         self.gerenciador_arquivos.dropEvent(event)
+
+    def is_sincronizacao_ativa(self) -> bool:
+        if hasattr(self, 'gerenciador_layouts') and self.gerenciador_layouts:
+            return self.gerenciador_layouts.is_sincronizacao_ativa()
+        return False
+
+    def sincronizar_rolagem_global(self, coordenador_origem, nome_visao, delta_mm):
+        if hasattr(self, 'gerenciador_layouts') and self.gerenciador_layouts:
+            self.gerenciador_layouts.sincronizar_rolagem_global(coordenador_origem, nome_visao, delta_mm)
 
 if __name__ == "__main__":
     if sys.platform == "win32":
