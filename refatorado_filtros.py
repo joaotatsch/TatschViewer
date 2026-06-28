@@ -2,10 +2,12 @@
 from __future__ import annotations
 from PyQt6.QtCore import QObject, QEvent, Qt
 import vtk
+
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .navegacao_2d import Navegador2D
     from .navegacao_3d import Navegador3D
+
 class FiltroEventosDicom(QObject):
     """
     Filtro de eventos PyQt6 para os visualizadores 2D.
@@ -31,8 +33,8 @@ class FiltroEventosDicom(QObject):
         self.alvo_arraste = None
         self.alvo_reslice = None
         self.interactor.setMouseTracking(True)
-        self._modo_crosshair = False
-        self._ferramenta_ativa = "Normal"
+        self.modo_crosshair = False
+        self.ferramenta_ativa = "Normal"
         from .ferramentas import (
             FerramentaNormal, FerramentaSemente, FerramentaSementeDSA,
             FerramentaRegua, FerramentaElipse, FerramentaCropBox,
@@ -57,8 +59,6 @@ class FiltroEventosDicom(QObject):
         self.ultima_posicao_medida = None
         self.drag_crop_index = None
         self.ultimo_pick_mundo = None
-        self.ultimo_pos_x = 0
-        self.ultimo_pos_y = 0
         self.picker = vtk.vtkCellPicker()
         self.picker.SetTolerance(0.005)
         
@@ -67,40 +67,6 @@ class FiltroEventosDicom(QObject):
         self.style = vtk.vtkInteractorStyleImage()
         self.interactor.SetInteractorStyle(self.style)
                 
-    @property
-    def ferramenta_ativa(self):
-        return getattr(self, '_ferramenta_ativa', 'Normal')
-
-    @ferramenta_ativa.setter
-    def ferramenta_ativa(self, value):
-        self._ferramenta_ativa = value
-        if hasattr(self, 'ferramentas') and value in self.ferramentas:
-            if hasattr(self, 'ferramenta_atual') and hasattr(self.ferramenta_atual, 'on_exit'):
-                self.ferramenta_atual.on_exit(self)
-            self.ferramenta_atual = self.ferramentas[value]
-            if hasattr(self.ferramenta_atual, 'on_enter'):
-                self.ferramenta_atual.on_enter(self)
-
-    @property
-    def modo_crosshair(self):
-        return getattr(self, '_modo_crosshair', False)
-
-    @modo_crosshair.setter
-    def modo_crosshair(self, value):
-        self._modo_crosshair = value
-        if value and hasattr(self, 'ferramentas'):
-            if hasattr(self, 'ferramenta_atual') and hasattr(self.ferramenta_atual, 'on_exit'):
-                self.ferramenta_atual.on_exit(self)
-            self.ferramenta_atual = self.ferramentas['Crosshair']
-            if hasattr(self.ferramenta_atual, 'on_enter'):
-                self.ferramenta_atual.on_enter(self)
-        elif not value and hasattr(self, 'ferramentas'):
-            if hasattr(self, 'ferramenta_atual') and hasattr(self.ferramenta_atual, 'on_exit'):
-                self.ferramenta_atual.on_exit(self)
-            self.ferramenta_atual = self.ferramentas.get(self._ferramenta_ativa, self.ferramentas['Normal'])
-            if hasattr(self.ferramenta_atual, 'on_enter'):
-                self.ferramenta_atual.on_enter(self)
-
     def _renderizar_seguro(self):
         if "TELA" in self.nome_visao:
             rnd = self.interactor.GetRenderWindow().GetRenderers().GetFirstRenderer()
@@ -114,6 +80,7 @@ class FiltroEventosDicom(QObject):
                         rnd = interactor.GetRenderWindow().GetRenderers().GetFirstRenderer()
                         if rnd: rnd.ResetCameraClippingRange()
                         interactor.GetRenderWindow().Render()
+
     def _hit_test(self, pos):
         if "Sagital" not in self.navegador_2d.planos or "Coronal" not in self.navegador_2d.planos or "Axial" not in self.navegador_2d.planos:
             return None
@@ -122,6 +89,7 @@ class FiltroEventosDicom(QObject):
         cz = self.navegador_2d.planos["Axial"].GetOrigin()[2]
         centros = {"Sagital": cx, "Coronal": cy, "Axial": cz}
         idx_map = {"Sagital": 0, "Coronal": 1, "Axial": 2}
+
         visoes_cruzadas = []
         if self.nome_visao == "Axial": visoes_cruzadas = ["Sagital", "Coronal"]
         elif self.nome_visao == "Coronal": visoes_cruzadas = ["Sagital", "Axial"]
@@ -149,6 +117,7 @@ class FiltroEventosDicom(QObject):
                 return v_alvo
                 
         return None
+
     def eventFilter(self, obj, event):
         if not getattr(self, 'ativo', True):
             return True
@@ -222,7 +191,6 @@ class FiltroEventosDicom(QObject):
                                                 rnd.ResetCameraClippingRange()
                                                 rnd.GetRenderWindow().Render()
                                             except Exception:
-                                                import traceback; traceback.print_exc()
                                                 pass
                                         
                                 # Sincronização de rolagem global (Sync Scroll)
@@ -253,7 +221,7 @@ class FiltroEventosDicom(QObject):
                 elif event.type() == QEvent.Type.MouseButtonDblClick:
                     # Impede que o duplo clique ative funções nativas do C++ do VTK 
                     # (como window/level nativo) que poderiam ficar com o mouse preso
-                    return False
+                    return True
                     
                 elif event.type() == QEvent.Type.MouseMove:
                     if hasattr(self, 'ferramenta_atual'):
@@ -264,148 +232,46 @@ class FiltroEventosDicom(QObject):
                         if self.ferramenta_atual.on_mouse_release(event, self):
                             return True
                     # Consome releases perdidos se alguma flag ficou ativada
-                    if getattr(self, 'arrastando_janelamento', False) or getattr(self, 'arrastando_zoom', False) or getattr(self, 'arrastando_pan', False) or getattr(self, 'arrastando_crosshair', False):
-                        self.arrastando_janelamento = self.arrastando_zoom = self.arrastando_pan = self.arrastando_crosshair = False
+                    if getattr(self, 'arrastando_janelamento', False) or getattr(self, 'arrastando_zoom', False) or getattr(self, 'arrastando_pan', False):
+                        self.arrastando_janelamento = self.arrastando_zoom = self.arrastando_pan = False
                         self.interactor.setCursor(Qt.CursorShape.ArrowCursor)
                         return True
-                elif event.type() == QEvent.Type.KeyPress:
-                    # Pega a tecla 'C' (ignorando a repetição automática do teclado)
-                    if event.key() == Qt.Key.Key_C and not event.isAutoRepeat():
-                        self.modo_crosshair = True
-                        if hasattr(self.parent(), 'operador_crosshair'):
-                            self.parent().operador_crosshair.ator.SetVisibility(True)
-                            for n, f in self.parent().filtros_eventos.items():
-                                f.interactor.GetRenderWindow().Render()
-                        return True
-                        
-                    if event.key() in (Qt.Key.Key_Delete, Qt.Key.Key_Backspace):
-                        if self.medida_selecionada and hasattr(self.parent(), 'coordenador_medidas'):
-                            self.parent().coordenador_medidas.remover_medida(self.medida_selecionada)
-                            self.medida_selecionada = None
-                            self.arrastando_medida = False
-                            self.ultima_posicao_medida = None
-                            self.interactor.GetRenderWindow().Render()
-                            return True
-    
-                elif event.type() == QEvent.Type.KeyRelease:
-                    if event.key() == Qt.Key.Key_C and not event.isAutoRepeat():
-                        self.modo_crosshair = False
-                        if hasattr(self.parent(), 'operador_crosshair'):
-                            self.parent().operador_crosshair.ator.SetVisibility(False)
-                            for n, f in self.parent().filtros_eventos.items():
-                                f.interactor.GetRenderWindow().Render()
-                        return True
-                    
-        except Exception:
-            import traceback; traceback.print_exc()
-            return False
-        return super().eventFilter(obj, event)
-class FiltroEventosDicom3D(QObject):
-    """
-    Filtro de eventos PyQt6 para a visualização 3D.
-    Intercepta Shift + Clique Esquerdo para ajustar o janelamento 3D,
-    deixando rotação nativa (Left Click comum), Pan (Middle) e Zoom (Right) fluírem.
-    """
-    def __init__(self, navegador_3d: Navegador3D, interactor, janelamento_callback=None, parent=None):
-        super().__init__(parent)
-        self.ativo = True
-        self.navegador_3d = navegador_3d
-        self.interactor = interactor
-        self.janelamento_callback = janelamento_callback
-        
-        self.picker = vtk.vtkPointPicker()
-        self.picker.PickFromListOn()
-        self.ultimo_pos_x = 0
-        self.ultimo_pos_y = 0
-        self.arrastando_janelamento = False
-        
-        self._ferramenta_ativa = "Normal"
-        from .ferramentas import FerramentaBisturi
-        from .ferramentas_base import FerramentaBase
+        self.ferramenta_ativa = "Normal"
+        from .ferramentas import (
+            FerramentaNormal, FerramentaSemente, FerramentaSementeDSA,
+            FerramentaRegua, FerramentaElipse, FerramentaCropBox,
+            FerramentaCrosshair, FerramentaReslice, FerramentaBisturi
+        )
         self.ferramentas = {
-            'Normal': FerramentaBase(),
+            'Normal': FerramentaNormal(),
+            'Semente': FerramentaSemente(),
+            'SementeDSA': FerramentaSementeDSA(),
+            'Regua': FerramentaRegua(),
+            'Elipse': FerramentaElipse(),
+            'CropBox': FerramentaCropBox(),
+            'Crosshair': FerramentaCrosshair(),
+            'Reslice': FerramentaReslice(),
             'Bisturi': FerramentaBisturi()
         }
         self.ferramenta_atual = self.ferramentas['Normal']
-
-
-        self.bisturi_pontos = []
-        self.bisturi_poly = vtk.vtkPolyData()
-        mapper2d = vtk.vtkPolyDataMapper2D()
-        mapper2d.SetInputData(self.bisturi_poly)
-        
-        coord = vtk.vtkCoordinate()
-        coord.SetCoordinateSystemToDisplay()
-        mapper2d.SetTransformCoordinate(coord)
-        
-        self.bisturi_actor = vtk.vtkActor2D()
-        self.bisturi_actor.SetMapper(mapper2d)
-        self.bisturi_actor.GetProperty().SetColor(1.0, 1.0, 0.0) # Amarelo
-        self.bisturi_actor.GetProperty().SetLineWidth(2.0)
-    def eventFilter(self, obj, event):
-        if not getattr(self, 'ativo', True):
-            return True
-        if not hasattr(self, 'interactor') or self.interactor is None:
-            return super().eventFilter(obj, event)
-        try:
-            if obj == self.interactor:
                 if event.type() == QEvent.Type.MouseButtonPress:
                     if hasattr(self, 'ferramenta_atual'):
                         if self.ferramenta_atual.on_mouse_press(event, self):
                             return True
-                    if event.modifiers() & Qt.KeyboardModifier.ShiftModifier:
-                        self.arrastando_janelamento = True
-                        self.ultimo_pos_x = event.position().x()
-                        self.ultimo_pos_y = event.position().y()
-                        return True
                 elif event.type() == QEvent.Type.MouseButtonDblClick:
                     # Impede que o duplo clique ative funções nativas do C++ do VTK
-                    return False
+                    return True
                         
                 elif event.type() == QEvent.Type.MouseMove:
                     if hasattr(self, 'ferramenta_atual'):
                         if self.ferramenta_atual.on_mouse_move(event, self):
                             return True
-                    if self.arrastando_janelamento and event.buttons() & Qt.MouseButton.LeftButton:
-                        dx = event.position().x() - self.ultimo_pos_x
-                        dy = event.position().y() - self.ultimo_pos_y
-                        self.ultimo_pos_x = event.position().x()
-                        self.ultimo_pos_y = event.position().y()
-                        ww_atual = self.navegador_3d.ww_3d
-                        wl_atual = self.navegador_3d.wl_3d
-                        sensibilidade = 2.0
-                        novo_ww = max(10.0, ww_atual + dx * sensibilidade)
-                        novo_wl = wl_atual - dy * sensibilidade
-                        self.navegador_3d.atualizar_transfer_functions(novo_ww, novo_wl)
-                        if self.janelamento_callback: self.janelamento_callback(novo_ww, novo_wl)
-                        return True
                 elif event.type() == QEvent.Type.MouseButtonRelease:
                     if hasattr(self, 'ferramenta_atual'):
                         if self.ferramenta_atual.on_mouse_release(event, self):
                             return True
-                    if getattr(self, 'arrastando_janelamento', False):
-                        self.arrastando_janelamento = False
-                        print('LOG-3D: arrastando_janelamento set to False')
+                    # Consome releases perdidos se alguma flag ficou ativada
+                    if getattr(self, 'arrastando_janelamento', False) or getattr(self, 'arrastando_zoom', False) or getattr(self, 'arrastando_pan', False):
+                        self.arrastando_janelamento = self.arrastando_zoom = self.arrastando_pan = False
+                        self.interactor.setCursor(Qt.CursorShape.ArrowCursor)
                         return True
-                    if getattr(self, 'arrastando_bisturi', False):
-                        self.arrastando_bisturi = False
-                        return True
-
-        except Exception:
-            import traceback; traceback.print_exc()
-            return False
-        return super().eventFilter(obj, event)
-
-    @property
-    def ferramenta_ativa(self):
-        return getattr(self, '_ferramenta_ativa', 'Normal')
-
-    @ferramenta_ativa.setter
-    def ferramenta_ativa(self, value):
-        self._ferramenta_ativa = value
-        if hasattr(self, 'ferramentas') and value in self.ferramentas:
-            if hasattr(self, 'ferramenta_atual') and hasattr(self.ferramenta_atual, 'on_exit'):
-                self.ferramenta_atual.on_exit(self)
-            self.ferramenta_atual = self.ferramentas[value]
-            if hasattr(self.ferramenta_atual, 'on_enter'):
-                self.ferramenta_atual.on_enter(self)

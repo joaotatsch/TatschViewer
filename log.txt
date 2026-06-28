@@ -1,0 +1,1015 @@
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaRegua on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_press
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 259, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_elipse.py", line 47, in on_mouse_move
+    medidas_coord.atualizar_medida(medida_atual, pos_world)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CoordenadorMedidas' object has no attribute 'atualizar_medida'. Did you mean: 'atualizar_regua'?
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_release
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaElipse on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_press
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_release
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaBisturi on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_press
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 354, in eventFilter
+    if self.ferramenta_atual.on_mouse_press(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 52, in on_mouse_press
+    filtro.alvo_arraste = filtro._hit_test(pos)
+                          ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_release
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_press
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 354, in eventFilter
+    if self.ferramenta_atual.on_mouse_press(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 52, in on_mouse_press
+    filtro.alvo_arraste = filtro._hit_test(pos)
+                          ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_release
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+Traceback (most recent call last):
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\filtros_eventos.py", line 367, in eventFilter
+    if self.ferramenta_atual.on_mouse_move(event, self):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Desktop\Projetos\TatschViewer\navegacao\ferramentas\ferramenta_normal.py", line 94, in on_mouse_move
+    alvo = filtro._hit_test(pos)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'FiltroEventosDicom3D' object has no attribute '_hit_test'
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-TOOL: FerramentaNormal on_mouse_move
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado
+LOG-EVENT: FiltroEventosDicom.eventFilter chamado

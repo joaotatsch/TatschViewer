@@ -17,6 +17,10 @@ class CoordenadorMedidas:
     def atualizar_regua(self, pos_world):
         if self.medida_ativa:
             self.medida_ativa.atualizar_ponto2(pos_world)
+            
+    def atualizar_medida(self, medida, pos_world):
+        if medida:
+            medida.atualizar_ponto2(pos_world)
         
     def finalizar_regua(self):
         self.medida_ativa = None

@@ -62,13 +62,13 @@ class UIBuilder:
         main_window.action_abrir = QAction(tr("btn_abrir"), main_window)
         main_window.action_abrir.setIcon(QIcon(os.path.join("icones", "abrir_pasta.png")))
         main_window.action_abrir.setStatusTip(tr("tip_abrir"))
-        main_window.action_abrir.triggered.connect(main_window.gerenciador_arquivos.abrir_pasta)
+        main_window.action_abrir.triggered.connect(main_window.abrir_pasta_dialog)
         
         # Ação: Anonimizar e Exportar
         main_window.action_anonimizar = QAction(tr("btn_anonimizar"), main_window)
         main_window.action_anonimizar.setIcon(QIcon(os.path.join("icones", "anonimizar.png")))
         main_window.action_anonimizar.setStatusTip(tr("tip_anonimizar"))
-        main_window.action_anonimizar.triggered.connect(main_window.gerenciador_arquivos.anonimizar_e_exportar)
+        main_window.action_anonimizar.triggered.connect(main_window.iniciar_exportacao_anonimizada)
 
         # Estilo padrão para botões da barra de ferramentas
         for action in [main_window.action_abrir, main_window.action_anonimizar]:
@@ -458,7 +458,7 @@ class UIBuilder:
         layout_lateral.addWidget(main_window.list_series)
 
         main_window.btn_dicas = QPushButton(tr("lbl_dicas_btn"))
-        main_window.btn_dicas.clicked.connect(main_window.gerenciador_arquivos.mostrar_dicas_navegacao)
+        main_window.btn_dicas.clicked.connect(main_window.mostrar_dicas_navegacao)
         layout_lateral.addWidget(main_window.btn_dicas)
 
         main_window.dock_series.setWidget(container_lateral)
